@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Todoitem #<%= @the_todoitem.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/todoitems">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_todoitem/<%= @the_todoitem.id %>">
+          Delete todoitem
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_todoitem.description %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_todoitem.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_todoitem.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit todoitem
+    </h2>
+
+    <form action="/modify_todoitem/<%= @the_todoitem.id %>"  method="post" >
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description" value="<%= @the_todoitem.description %>">
+      </div>
+
+      <button>
+        Update todoitem
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
